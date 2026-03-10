@@ -219,6 +219,7 @@ GameObject:
   m_Component:
   - component: {fileID: 110942872}
   - component: {fileID: 110942871}
+  - component: {fileID: 110942873}
   m_Layer: 0
   m_Name: Placers
   m_TagString: Untagged
@@ -254,6 +255,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &110942873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110942870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b465bf71da6a6ad4a8480eb854d001ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BeerPlacer
+  beerPrefab: {fileID: 700462838902294020, guid: 204f8e4210259634dba87ee88548e547, type: 3}
 --- !u!1 &194993686
 GameObject:
   m_ObjectHideFlags: 0
