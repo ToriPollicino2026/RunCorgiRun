@@ -1,22 +1,13 @@
 using System.Collections;
 using UnityEngine;
 
-public class BeerPlacer : MonoBehaviour
+public class BeerPlacer : TimedObjectPlacer
 {
-    public GameObject beerPrefab;
-    void Update()
-    {
-        StartCoroutine(CountDownUntilCreation());
-    }
+   public void Start()
+   {
+      minimumSecondsToWait = GameParameters.BeerMinimumSecondsToWait;
+      maximumSecondsToWait = GameParameters.BeerMaximumSecondsToWait;
+   }
 
-    IEnumerator CountDownUntilCreation()
-    {
-        yield return new WaitForSeconds(3f);
-        Place();
-    }
-
-    private void Place()
-    {
-        Instantiate(beerPrefab, SpawnTools.RandomLocationWorldSpace(), Quaternion.identity);
-    }
+   
 }
