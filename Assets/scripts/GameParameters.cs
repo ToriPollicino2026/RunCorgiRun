@@ -17,4 +17,7 @@ public class GameParameters : MonoBehaviour
     public static float PillSecondsOnScreen = 2f;
     public static float PillMinimumSecondsToWait = 4f;
     public static float PillMaximumSecondsToWait = 6f;
+
+    public static float CorgiDrunkSeconds = 5f;
+    
 }

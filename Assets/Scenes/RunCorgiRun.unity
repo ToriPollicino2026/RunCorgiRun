@@ -334,6 +334,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a82cbade1016b9a4e9b2aeff913ac68e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::corgi
+  DrunkSprite: {fileID: 21300000, guid: 1f6e83d6594ccea4fa0753ab560205f0, type: 3}
+  SoberSprite: {fileID: 21300000, guid: 7d8d610ec81c9634fb015cb0570e8e5e, type: 3}
 --- !u!212 &194993688
 SpriteRenderer:
   m_ObjectHideFlags: 0
