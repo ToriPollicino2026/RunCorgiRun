@@ -8,6 +8,7 @@ public class corgi : MonoBehaviour
     public Sprite DrunkSprite;
     public Sprite SoberSprite;
     private Coroutine soberUpCoroutine;
+    private bool isPlastered = false;
 
     public void OnTriggerEnter2D(Collider2D other)
     {
@@ -18,11 +19,56 @@ public class corgi : MonoBehaviour
         }
         if(other.tag == "bone");
         {
-            
+            Destroy(other.gameObject);
         }
         if(other.tag == "pill");
         {
-            
+            SoberUp();
+            Destroy(other.gameObject);
+        }
+    }
+
+    public void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.collider.tag == "moonshine")
+        {
+            GetPlastered();
+            Destroy(other.gameObject);
+        }
+    }
+
+    private void GetPlastered()
+    {
+        isPlastered = true;
+        ChangeToDrunkSprite();
+        StartSoberingUp();
+    }
+
+    public void Update()
+    {
+        if (isPlastered)
+        {
+            MoveRandomly();
+        }
+    }
+
+    private void MoveRandomly()
+    {
+        int direction = Random.Range(0, 4);
+        switch (direction)
+        {
+            case 0:
+                Move(new Vector2(1,0));
+                break;
+            case 1:
+                Move(new Vector2(-1,0));
+                break;
+            case 2:
+                Move(new Vector2(0,1));
+                break;
+            case 3:
+                Move(new Vector2(0,-1));
+                break;
         }
     }
 
@@ -62,6 +108,7 @@ public class corgi : MonoBehaviour
     {
         ChangeToSoberSprite();
         isDrunk = false;
+        isPlastered = false;
     }
 
     private void ChangeToSoberSprite()
@@ -71,7 +118,6 @@ public class corgi : MonoBehaviour
 
     private void ChangeToDrunkSprite()
     {
-        print("drunk");
         spriteRenderer.sprite = DrunkSprite;
     }
 
