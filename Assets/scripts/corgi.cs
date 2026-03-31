@@ -9,19 +9,35 @@ public class corgi : MonoBehaviour
     public Sprite SoberSprite;
     private Coroutine soberUpCoroutine;
     private bool isPlastered = false;
+    private int randomMoveCounter = 0;
+    private int lastRandomDirection = 0;
+    public UI Ui;
 
+    public void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+    public void Update()
+    {
+        if (isPlastered)
+        {
+            MoveRandomly();
+        }
+    }
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "beer");
+        if(other.tag == "beer")
         {
             GetDrunk();
             Destroy(other.gameObject);
         }
-        if(other.tag == "bone");
+        if(other.tag == "bone")
         {
+            ScoreKeeper.AddPoint();
+            Ui.SetScoreText(ScoreKeeper.GetScore());
             Destroy(other.gameObject);
         }
-        if(other.tag == "pill");
+        if(other.tag == "pill")
         {
             SoberUp();
             Destroy(other.gameObject);
@@ -36,6 +52,41 @@ public class corgi : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
+    
+    private void MoveRandomly()
+    {
+        int direction = Random.Range(0, 4);
+        if (randomMoveCounter == 0)
+        {
+            direction = Random.Range(0, 4);
+            lastRandomDirection = direction;
+            randomMoveCounter = Random.Range(20, 60);
+        }
+        switch (direction)
+            {
+                case 0:
+                    Move(new Vector2(1, 0));
+                    break;
+                case 1:
+                    Move(new Vector2(-1, 0));
+                    break;
+                case 2:
+                    Move(new Vector2(0, 1));
+                    break;
+                case 3:
+                    Move(new Vector2(0, -1));
+                    break;
+            }
+            randomMoveCounter = randomMoveCounter - 1;
+    }
+
+    public void MoveManually(Vector2 direction)
+    {
+        if (isPlastered)
+        {
+            Move(direction);
+        }
+    }
 
     private void GetPlastered()
     {
@@ -43,43 +94,14 @@ public class corgi : MonoBehaviour
         ChangeToDrunkSprite();
         StartSoberingUp();
     }
-
-    public void Update()
-    {
-        if (isPlastered)
-        {
-            MoveRandomly();
-        }
-    }
-
-    private void MoveRandomly()
-    {
-        int direction = Random.Range(0, 4);
-        switch (direction)
-        {
-            case 0:
-                Move(new Vector2(1,0));
-                break;
-            case 1:
-                Move(new Vector2(-1,0));
-                break;
-            case 2:
-                Move(new Vector2(0,1));
-                break;
-            case 3:
-                Move(new Vector2(0,-1));
-                break;
-        }
-    }
-
+    
     private void GetDrunk()
     {
         isDrunk = true;
         ChangeToDrunkSprite();
         StartSoberingUp();
     }
-
-    private Vector2 ApplyDrunkeness(Vector2 direction)
+    private Vector2 ApplyDrunkness(Vector2 direction)
     {
         if (isDrunk)
         {
@@ -88,7 +110,13 @@ public class corgi : MonoBehaviour
         }
         return direction;
     }
-
+    
+    private void SoberUp()
+    {
+        ChangeToSoberSprite();
+        isDrunk = false;
+        isPlastered = false;
+    }
     private void StartSoberingUp()
     {
         if (soberUpCoroutine != null)
@@ -97,18 +125,11 @@ public class corgi : MonoBehaviour
         }
         soberUpCoroutine = StartCoroutine(CountdownUntilSober());
     }
-
+    
     IEnumerator CountdownUntilSober()
     {
         yield return new WaitForSeconds(GameParameters.CorgiDrunkSeconds);
         SoberUp();
-    }
-
-    private void SoberUp()
-    {
-        ChangeToSoberSprite();
-        isDrunk = false;
-        isPlastered = false;
     }
 
     private void ChangeToSoberSprite()
@@ -121,21 +142,16 @@ public class corgi : MonoBehaviour
         spriteRenderer.sprite = DrunkSprite;
     }
 
-    public void Awake()
-    {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-    }
-
     public void Move(Vector2 direction)
     {
-        direction = ApplyDrunkeness(direction);
-        FaceCorrecrDirection(direction);
+        direction = ApplyDrunkness(direction);
+        FaceCorrectDirection(direction);
         Vector2 movementAmount = 5f * direction * Time.deltaTime;
         spriteRenderer.transform.Translate(movementAmount.x, movementAmount.y, 0);
         spriteRenderer.transform.position = SpriteTools.ConstrainToScreen(spriteRenderer);
     }
 
-    private void FaceCorrecrDirection(Vector2 direction)
+    private void FaceCorrectDirection(Vector2 direction)
     {
         if (direction.x > 0)
         {

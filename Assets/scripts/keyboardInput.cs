@@ -10,19 +10,19 @@ public class keyboardInput : MonoBehaviour
         Keyboard keyboard = Keyboard.current;
         if (keyboard.wKey.isPressed)
         {
-            corgi.Move(Vector2.up);
+            corgi.MoveManually(Vector2.up);
         }
         if (keyboard.sKey.isPressed)
         {
-            corgi.Move(Vector2.down);
+            corgi.MoveManually(Vector2.down);
         }
         if (keyboard.aKey.isPressed)
         {
-            corgi.Move(Vector2.left);
+            corgi.MoveManually(Vector2.left);
         }
         if (keyboard.dKey.isPressed)
         {
-            corgi.Move(Vector2.right);
+            corgi.MoveManually(Vector2.right);
         }
         if (keyboard.spaceKey.wasPressedThisFrame)
         {
