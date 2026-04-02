@@ -83,9 +83,9 @@ public class corgi : MonoBehaviour
     public void MoveManually(Vector2 direction)
     {
         if (isPlastered)
-        {
-            Move(direction);
-        }
+            return;
+        
+        Move(direction);
     }
 
     private void GetPlastered()
