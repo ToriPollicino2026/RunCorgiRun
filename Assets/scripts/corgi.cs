@@ -55,7 +55,8 @@ public class corgi : MonoBehaviour
     
     private void MoveRandomly()
     {
-        int direction = Random.Range(0, 4);
+        int direction = lastRandomDirection; 
+        
         if (randomMoveCounter == 0)
         {
             direction = Random.Range(0, 4);

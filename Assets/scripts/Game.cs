@@ -20,12 +20,12 @@ public class NewMonoBehaviourScript : MonoBehaviour
     public void OnStartButtonClicked()
     {
         UI.HideStartScreen();
-        
+        StartGame();
     }
 
     private void StartGame()
     {
-        GameTimer.StartTimer(10, OnTimerFinsihed);
+        GameTimer.StartTimer(20, OnTimerFinsihed);
     }
 
     private void OnTimerFinsihed()
