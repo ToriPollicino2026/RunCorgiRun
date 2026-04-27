@@ -1865,6 +1865,11 @@ MonoBehaviour:
   StartScreen: {fileID: 1121052771}
   UI: {fileID: 8140809}
   GameTimer: {fileID: 840435187}
+  BeerPlacer: {fileID: 110942873}
+  BonePlacer: {fileID: 110942874}
+  PillPlacer: {fileID: 110942875}
+  MoonshinePlacer: {fileID: 110942876}
+  Corgi: {fileID: 194993687}
 --- !u!4 &1861441675
 Transform:
   m_ObjectHideFlags: 0

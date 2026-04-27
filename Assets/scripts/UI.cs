@@ -10,7 +10,12 @@ public class UI : MonoBehaviour
     public CanvasGroup GameOverScreenCanvasGroup;
     public void SetScoreText(int score)
     {
-        scoreText.text = "Score: " + score;
+        scoreText.text = "Score: " + ScoreKeeper.GetScore();
+    }
+    
+    public void ResetText()
+    {
+        scoreText.text = "Score: 0";
     }
 
     public void ShowStartScreen()

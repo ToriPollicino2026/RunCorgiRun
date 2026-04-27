@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 public class TimedObjectPlacer : MonoBehaviour
 {
@@ -7,11 +9,16 @@ public class TimedObjectPlacer : MonoBehaviour
     public float minimumSecondsToWait;
     public float maximumSecondsToWait;
     private bool isOkToCreate = true;
+    private bool isActive = false;
+    private Coroutine countdownCoroutine;
+    
     void Update()
     {
+        if (!isActive)
+            return;
         if (isOkToCreate)
         {
-            StartCoroutine(CountDownUntilCreation());
+            countdownCoroutine = StartCoroutine(CountDownUntilCreation());
         }
     }
 
@@ -27,5 +34,29 @@ public class TimedObjectPlacer : MonoBehaviour
     public virtual void Place()
     {
         Instantiate(Prefab, SpawnTools.RandomLocationWorldSpace(), Quaternion.identity);
+    }
+
+    public void StartPlacing()
+    {
+        isActive = true;
+        isOkToCreate = true;
+        if (countdownCoroutine != null)
+            StopCoroutine(countdownCoroutine);
+    }
+
+    public void StopPlacing()
+    {
+        isActive = false;
+        isOkToCreate = false;
+        CleanupPlacedObjects();
+    }
+
+    private void CleanupPlacedObjects()
+    {
+            List<GameObject> placedObjects = GameObject.FindGameObjectsWithTag(Prefab.tag).ToList();
+            for (int i = 0; i < placedObjects.Count; i++)
+            {
+                Destroy(placedObjects[i]);
+            }
     }
 }

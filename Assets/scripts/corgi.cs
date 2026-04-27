@@ -24,6 +24,16 @@ public class corgi : MonoBehaviour
             MoveRandomly();
         }
     }
+
+    public void Reset()
+    {
+        isPlastered = false;
+        isDrunk  = false;
+        ChangeToSoberSprite();
+        spriteRenderer.flipX = false;
+        transform.position = Vector3.zero;
+    }
+
     public void OnTriggerEnter2D(Collider2D other)
     {
         if(other.tag == "beer")
