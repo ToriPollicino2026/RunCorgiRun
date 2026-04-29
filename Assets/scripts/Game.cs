@@ -12,12 +12,14 @@ public class NewMonoBehaviourScript : MonoBehaviour
     public BonePlacer BonePlacer;
     public PillPlacer PillPlacer;
     public MoonshinePlacer MoonshinePlacer;
+    public Music Music; 
 
     public corgi Corgi; 
 
     public void Start()
     {
         UI.ShowStartScreen();
+        Music.PlayMenuMusic();
     }
     
 
@@ -45,6 +47,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
         ScoreKeeper.ResetScore();
         UI.ResetText();
         Corgi.Reset();
+        Music.PlayGameMusic();
     }
 
     private void StartPlacers()
@@ -68,6 +71,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
     {
         UI.ShowGameOverScreen();
         StopPlacers();
+        Music.PlayMenuMusic();
     }
 
     public void OnPlayAgainButtonClick()
