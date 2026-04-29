@@ -12,6 +12,7 @@ public class corgi : MonoBehaviour
     private int randomMoveCounter = 0;
     private int lastRandomDirection = 0;
     public UI Ui;
+    public Sounds Sounds;
 
     public void Awake()
     {
@@ -38,17 +39,20 @@ public class corgi : MonoBehaviour
     {
         if(other.tag == "beer")
         {
+            Sounds.PlayBeerSound();
             GetDrunk();
             Destroy(other.gameObject);
         }
         if(other.tag == "bone")
         {
+            Sounds.PlayBoneSound();
             ScoreKeeper.AddPoint();
             Ui.SetScoreText(ScoreKeeper.GetScore());
             Destroy(other.gameObject);
         }
         if(other.tag == "pill")
         {
+            Sounds.PlayPillSound();
             SoberUp();
             Destroy(other.gameObject);
         }
@@ -58,6 +62,7 @@ public class corgi : MonoBehaviour
     {
         if (other.collider.tag == "moonshine")
         {
+            Sounds.PlayMoonshineSound();
             GetPlastered();
             Destroy(other.gameObject);
         }

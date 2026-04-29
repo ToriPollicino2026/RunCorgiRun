@@ -12,7 +12,8 @@ public class NewMonoBehaviourScript : MonoBehaviour
     public BonePlacer BonePlacer;
     public PillPlacer PillPlacer;
     public MoonshinePlacer MoonshinePlacer;
-    public Music Music; 
+    public Music Music;
+    public Sounds Sounds;
 
     public corgi Corgi; 
 
@@ -36,6 +37,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
     public void OnStartButtonClicked()
     {
         UI.HideStartScreen();
+        Sounds.PlayPoopSound();
         InitializeGame();
     }
 
@@ -77,6 +79,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
     public void OnPlayAgainButtonClick()
     {
         UI.HideGameOverScreen();
+        Sounds.PlayPoopSound();
         InitializeGame();
     }
 }

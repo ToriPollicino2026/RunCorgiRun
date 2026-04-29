@@ -291,6 +291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7618cfcc00a131741925cd175072a3ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PoopPlacer
+  Sounds: {fileID: 1646862452}
   PoopPrefab: {fileID: 4980945839421314106, guid: fb913cc48d637c142bb7fe4024724cba, type: 3}
 --- !u!4 &110942872
 Transform:
@@ -367,6 +368,7 @@ MonoBehaviour:
   Prefab: {fileID: 3561096929543103323, guid: a7dd528b525db8e40a23c4ed5a8aec39, type: 3}
   minimumSecondsToWait: 0
   maximumSecondsToWait: 0
+  Sounds: {fileID: 1646862452}
 --- !u!1 &121301109
 GameObject:
   m_ObjectHideFlags: 0
@@ -538,6 +540,7 @@ MonoBehaviour:
   DrunkSprite: {fileID: 21300000, guid: 1f6e83d6594ccea4fa0753ab560205f0, type: 3}
   SoberSprite: {fileID: 21300000, guid: 7d8d610ec81c9634fb015cb0570e8e5e, type: 3}
   Ui: {fileID: 8140809}
+  Sounds: {fileID: 1646862452}
 --- !u!212 &194993688
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1878,6 +1881,154 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1646862451
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1646862454}
+  - component: {fileID: 1646862453}
+  - component: {fileID: 1646862452}
+  m_Layer: 0
+  m_Name: Sounds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1646862452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1646862451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fe742d29bbe9554abe063ed5bd813c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Sounds
+  FallingSound: {fileID: 8300000, guid: bf761948e1bba9644b8d4bdd108fc656, type: 3}
+  PillSound: {fileID: 8300000, guid: 9aa4b10ce1471cd47a2eac3ca209bb91, type: 3}
+  BeerSound: {fileID: 8300000, guid: eb3eec6788140e84d83e1ef4cf160e1d, type: 3}
+  MoonshineSound: {fileID: 8300000, guid: a20cc5228286f1c499915a1e9d4dfb32, type: 3}
+  PoopSound: {fileID: 8300000, guid: 5553eb8d5b6beef439c669230e8866fa, type: 3}
+  BoneSound: {fileID: 8300000, guid: a21f1f65d71dce744ab9477a5d7d3a20, type: 3}
+--- !u!82 &1646862453
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1646862451}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1646862454
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1646862451}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 960, y: 540, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1690163912
 GameObject:
   m_ObjectHideFlags: 0
@@ -2176,6 +2327,7 @@ MonoBehaviour:
   PillPlacer: {fileID: 110942875}
   MoonshinePlacer: {fileID: 110942876}
   Music: {fileID: 1451221225}
+  Sounds: {fileID: 1646862452}
   Corgi: {fileID: 194993687}
 --- !u!4 &1861441675
 Transform:
@@ -2210,3 +2362,4 @@ SceneRoots:
   - {fileID: 875960723}
   - {fileID: 1690163914}
   - {fileID: 1451221226}
+  - {fileID: 1646862454}
