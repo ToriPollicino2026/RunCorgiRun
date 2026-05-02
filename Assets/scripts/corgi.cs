@@ -13,6 +13,7 @@ public class corgi : MonoBehaviour
     private int lastRandomDirection = 0;
     public UI Ui;
     public Sounds Sounds;
+    public ParticleSystem BubbleParticles;
 
     public void Awake()
     {
@@ -116,6 +117,7 @@ public class corgi : MonoBehaviour
         isDrunk = true;
         ChangeToDrunkSprite();
         StartSoberingUp();
+        BubbleParticles.Play();
     }
     private Vector2 ApplyDrunkness(Vector2 direction)
     {
@@ -132,6 +134,7 @@ public class corgi : MonoBehaviour
         ChangeToSoberSprite();
         isDrunk = false;
         isPlastered = false;
+        BubbleParticles.Stop();
     }
     private void StartSoberingUp()
     {
