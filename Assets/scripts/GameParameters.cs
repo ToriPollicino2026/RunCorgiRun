@@ -23,5 +23,14 @@ public class GameParameters : MonoBehaviour
     public static float MoonshineMaximumSecondsToWait = 1.5f;
 
     public static float CorgiDrunkSeconds = 5f;
-    
+
+    public static float BeerPulseAmount = 0.4f;
+    public static float BeerPulseSpeed = 5f;
+
+    public static float PillSpinDegreesPerSecond = 90f;
+
+    public static float BoneWaggleAngle = 45f;
+    public static float BoneWaggleSpeed = 5f;
+
+
 }
